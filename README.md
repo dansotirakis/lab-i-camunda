@@ -57,15 +57,14 @@ As tarefas externas são **conceitualmente muito semelhantes** às tarefas do us
 ### 📌 Links
 
 #### **🥁** **Trilha inicial**
-
-| **Check** | **Link**                                                     | **Descrição**                                |
-| --------- | ------------------------------------------------------------ | -------------------------------------------- |
-|           | [Download and   Installation (1/6)](https://docs.camunda.org/get-started/quick-start/install/) | Instalação da  estrutura engine work camunda |
-|           | [Executing   automated steps (2/6)](https://docs.camunda.org/get-started/quick-start/service-task/) | Execução da engine  work processo            |
-|           | [Deploy the   Process (3/6)](https://docs.camunda.org/get-started/quick-start/deploy/) | Deploy do processo  no cockpit do camunda    |
-|           | [Add a User   Task to the Process (4/6)](https://docs.camunda.org/get-started/quick-start/user-task/) | Entendendo as  tarefas de usuário            |
-|           | [Add Gateways   to the Process (5/6)](https://docs.camunda.org/get-started/quick-start/gateway/) | Aplicando  condicionais e rotas              |
-|           | [Leverage   business rules (6/6)](https://docs.camunda.org/get-started/quick-start/decision-automation/) | Adicionando regras  de negócio               |
+| **Link**                                                                                               | **Descrição**                                |
+| ------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| [Download and Installation (1/6)](https://docs.camunda.org/get-started/quick-start/install/)           | Instalação da  estrutura engine work camunda |
+| [Executing automated steps (2/6)](https://docs.camunda.org/get-started/quick-start/service-task/)      | Execução da engine  work processo            |
+| [Deploy the Process (3/6)](https://docs.camunda.org/get-started/quick-start/deploy/)                   | Deploy do processo  no cockpit do camunda    |
+| [Add a User Task to the Process (4/6)](https://docs.camunda.org/get-started/quick-start/user-task/)    | Entendendo as  tarefas de usuário            |
+| [Add Gateways to the Process (5/6)](https://docs.camunda.org/get-started/quick-start/gateway/)         | Aplicando  condicionais e rotas              |
+| [Leverage business rules (6/6)](https://docs.camunda.org/get-started/quick-start/decision-automation/) | Adicionando regras  de negócio               |
 
 #### **📚** **Documentação** 
 
