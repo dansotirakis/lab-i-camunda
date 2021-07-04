@@ -47,6 +47,7 @@ De <https://docs.camunda.org/manual/latest/user-guide/process-engine/external-ta
 As tarefas externas são **conceitualmente muito semelhantes** às tarefas do usuário. 
 
 - Ao tentar entender o padrão de tarefa externa pela primeira vez, pode ser útil pensar sobre ele em **analogia às tarefas do usuário**: 
+
   - Tarefas do usuário: são criadas pelo mecanismo de processo e adicionadas a uma lista de tarefas. O mecanismo de processo então espera que um usuário humano consulte a lista, solicite uma tarefa e a conclua. 
 
   - Tarefas externas: são semelhantes: uma tarefa externa é criada e adicionada a um tópico. Um aplicativo externo então consulta o tópico e bloqueia a tarefa. Depois que a tarefa é bloqueada, o aplicativo pode trabalhar nela e concluir.
@@ -85,5 +86,5 @@ As tarefas externas são **conceitualmente muito semelhantes** às tarefas do us
 
 | **Link**                          | **Conteúdo** |
 | --------------------------------- | ------------ |
-| [Blog](https://camunda.com/blog/) | New          |
+| [Blog](https://camunda.com/blog/) | New’         |
 
