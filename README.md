@@ -1,6 +1,6 @@
 # 🌬 Camunda
 
-![img](../../code/md-dansotirakis/img/niall-says-congrats.png)
+![img](./assets/niall-says-congrats.png)
 
 ## **📙** **Informações básicas** 
 
