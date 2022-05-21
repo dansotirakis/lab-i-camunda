@@ -26,3 +26,7 @@ docker run -d \
 ```shell
 docker-compose up -d
 ```
+
+## Credentials
+- Login: demo
+- User: demo
