@@ -7,3 +7,5 @@ camunda-engine/db-data/
 *.iml
 
 camunda-engine/env
+
+.run/
