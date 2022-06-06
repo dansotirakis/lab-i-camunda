@@ -1,3 +1,9 @@
 
 .idea/
 /camunda-engine/target/
+
+camunda-engine/db-data/
+
+*.iml
+
+camunda-engine/env
