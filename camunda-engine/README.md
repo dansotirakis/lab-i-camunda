@@ -13,5 +13,5 @@ java -jar -Dspring.profiles.active=aws target/*.jar
 ```
 ## Build project using docker engine
 ```shell
-docker-compose --env-file env.local up -d --build
+docker-compose --env-file optmize-config/env up -d --build
 ```
