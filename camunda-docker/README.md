@@ -52,9 +52,13 @@ docker run -d \
    -e ABSOLUTE_PATH_ON_HOST_TO_CONFIGURATION_FILE=optimize/config/environment-config.yaml \
    camunda/optimize:3.8.2
 ```
-## Docker Compose
+## Docker Compose Engine
 ```shell
-docker-compose --env-file env up -d --build
+docker-compose -f docker-compose-engine.yaml --env.optimize-file env.optimize.engine up -d --build
+```
+## Docker Compose Engine + Optimize
+```shell
+docker-compose -f docker-compose-optimize.yaml --env-file env.optimize up -d --build
 ```
 ## Credentials Cockpit
 - Login: demo
