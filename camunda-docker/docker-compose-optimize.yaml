@@ -5,9 +5,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: camunda
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: camunda-engine-db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./db-data/:/var/lib/postgresql/data/
     networks:
@@ -22,9 +22,9 @@ services:
       - "database:database"
     environment:
       DB_DRIVER: org.postgresql.Driver
-      DB_URL: jdbc:postgresql://database:5432/camunda-engine-db
-      DB_USERNAME: camunda
-      DB_PASSWORD: root
+      DB_URL: jdbc:postgresql://database:5432/${POSTGRES_DB}
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
     networks:
       - camunda-platform
     depends_on:

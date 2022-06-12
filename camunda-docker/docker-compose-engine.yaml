@@ -1,0 +1,34 @@
+services:
+
+  database:
+    image: 'postgres:latest'
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
+    networks:
+          - camunda-platform
+  camunda:
+    container_name: camunda
+    hostname: camunda
+    image: 'camunda/camunda-bpm-platform:latest'
+    ports:
+      - "8080:8080"
+    links:
+      - "database:database"
+    environment:
+      DB_DRIVER: org.postgresql.Driver
+      DB_URL: jdbc:postgresql://database:5432/${POSTGRES_DB}
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      - camunda-platform
+    depends_on:
+      - database
+
+networks:
+  camunda-platform:
