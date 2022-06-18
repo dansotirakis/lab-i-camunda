@@ -12,6 +12,7 @@ services:
       - ./db-data/:/var/lib/postgresql/data/
     networks:
           - camunda-platform
+  
   camunda:
     container_name: camunda
     hostname: camunda
@@ -30,6 +31,7 @@ services:
     depends_on:
       - database
       - elasticsearch
+  
   optimize: # https://docs.camunda.io/docs/self-managed/platform-deployment/docker/#optimize
     image: camunda/optimize:${CAMUNDA_OPTIMIZE_VERSION:-3.8.2}
     container_name: optimize
@@ -46,6 +48,7 @@ services:
     volumes:
       - ./optimize-config/environment-config.yaml:/optimize/config/environment-config.yaml
       - ./optimize-config/optimizeLicense.txt:/optimize/config/optimizeLicense.txt
+  
   elasticsearch: # https://hub.docker.com/_/elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-7.17.0}
     container_name: elasticsearch

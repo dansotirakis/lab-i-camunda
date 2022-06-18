@@ -1,29 +1,9 @@
 
-.idea/
-/camunda-engine/target/
-/camunda-optimize/optimize-backend/
-/camunda-optimize/reimport/optimize-reimport-preparation
-/camunda-optimize/upgrade/upgrade-optimize
-camunda-engine/db-data/
+*.idea/
 
 *.iml
 
-camunda-engine/env
-
-.run/
-
-camunda-optimize/webapp/
-
-camunda-optimize/logback.xml
+*.run/
 
 *.json
 
-camunda-optimize/keystore.jks
-
-*.svg
-
-camunda-optimize/localization/
-
-camunda-optimize/config/localization/
-
-camunda-optimize/
