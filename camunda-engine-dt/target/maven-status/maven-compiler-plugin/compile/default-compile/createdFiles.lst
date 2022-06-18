@@ -1,0 +1,5 @@
+com/example/delegate/domain/Book/Book.class
+com/example/delegate/Application.class
+com/example/delegate/delegate/FindBookDelegate.class
+com/example/delegate/delegate/NewBookDelegate.class
+com/example/delegate/clients/BookProducerClient.class

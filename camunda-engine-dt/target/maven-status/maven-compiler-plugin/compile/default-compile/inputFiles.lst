@@ -1,0 +1,5 @@
+/home/asus/_code/lab-bf-camunda/camunda-engine/src/main/java/com/example/delegate/clients/BookProducerClient.java
+/home/asus/_code/lab-bf-camunda/camunda-engine/src/main/java/com/example/delegate/delegate/NewBookDelegate.java
+/home/asus/_code/lab-bf-camunda/camunda-engine/src/main/java/com/example/delegate/Application.java
+/home/asus/_code/lab-bf-camunda/camunda-engine/src/main/java/com/example/delegate/delegate/FindBookDelegate.java
+/home/asus/_code/lab-bf-camunda/camunda-engine/src/main/java/com/example/delegate/domain/Book/Book.java
