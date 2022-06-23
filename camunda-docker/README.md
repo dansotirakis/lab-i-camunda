@@ -54,7 +54,7 @@ docker run -d \
 ```
 ## Docker Compose Engine
 ```shell
-docker-compose -f docker-compose-engine.yaml --env.optimize-file env.optimize.engine up -d --build
+docker-compose -f docker-compose-engine.yaml --env.optimize-file env.engine up -d --build
 ```
 ## Docker Compose Engine + Optimize
 ```shell
