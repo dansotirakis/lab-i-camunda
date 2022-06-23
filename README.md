@@ -1,16 +1,22 @@
-# lab-bf-camunda
-This rebo is a execute practice study about this camunda platform
-
-## Links
-- [Forum](https://forum.camunda.io/)
-- [Jira](https://jira.camunda.com/secure/BrowseProjects.jspa?selectedCategory=all&selectedProjectType=software)
-
-## Tickets
-- [OPT-6211](https://jira.camunda.com/browse/OPT-6211)
-> [optimize-can-not-verify-engines-version](https://forum.camunda.io/t/optimize-can-not-verify-engines-version/37544/7)
-
-```
-Elasticsearch built-in security features are not enabled
-    org.camunda.optimize.service.exceptions
-        OptimizeRuntimeException: Engine didn't respond. Can not verify this engine's version
-```
+# [⏺️](https://github.com/camunda-community-hub) [Camunda](https://github.com/camunda)
+- [🏺](https://artifacts.camunda.com/) Artifactory
+- [📑](https://forum.camunda.io/) Forum
+    -[🗺️](https://forum.camunda.io/c/optimize/21) Optimize
+        - [📢](https://forum.camunda.io/t/optimize-can-not-verify-engines-version/37544/7) Optimize-can-not-verify-engines-version
+- [🕵️‍♂️](https://jira.camunda.com/secure/BrowseProjects.jspa?selectedCategory=all&selectedProjectType=software) Jira
+    - [🛑](https://jira.camunda.com/browse/OPT-6211) OPT-6211 : Optimize-can-not-verify-engines-version
+- [📚](https://docs.camunda.org) Documentação
+    - [📓](https://docs.camunda.io/meta/) Engine v8
+    - [📙](https://docs.camunda.org/manual/7.17/) Engine v7
+      - [🧾](https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/) External tasks
+      - [🧾](https://docs.camunda.org/manual/latest/user-guide/process-engine/delegation-code/#java-delegate) Delegate
+        - [🔖](https://docs.camunda.org/manual/latest/user-guide/process-engine/delegation-code/#throw-bpmn-errors-from-delegation-code) Throw BPMN Errors
+    - [📗](https://docs.camunda.org/optimize/latest/) Optimize
+      - [🧾](https://docs.camunda.org/optimize/3.1/technical-guide/setup/installation/#getting-started-with-the-optimize-docker-image) Docker instruções
+       - [🧾](https://docs.camunda.org/optimize/3.1/technical-guide/setup/installation/#configuration-using-a-environment-config-yaml-file) Váriaveis de ambiente
+       - [🧾](https://docs.camunda.org/optimize/3.1/technical-guide/setup/multiple-engines/) Vários mecanismos de processo
+         - [🔖](https://docs.camunda.org/optimize/3.1/technical-guide/setup/multiple-engines/#multiple-engines-with-distributed-databases) Com banco de dados distribuido
+         - [🔖](https://docs.camunda.org/optimize/3.1/technical-guide/setup/multiple-engines/#multiple-engines-with-a-shared-database) Com banco de dados compartilhado
+    - [📘](https://docs.camunda.org/cawemo/latest/) Cawemo
+        - [🧾](https://docs.camunda.org/cawemo/1.5/docker-compose.yml) Exemplo de docker-compose
+        - [🧾](https://docs.camunda.org/cawemo/develop/technical-guide/architecture-overview/) Arquitetura

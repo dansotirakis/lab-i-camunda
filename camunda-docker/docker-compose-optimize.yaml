@@ -5,14 +5,13 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_USER: ${POSTGRES_DB}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./db-data/:/var/lib/postgresql/data/
     networks:
           - camunda-platform
-  
   camunda:
     container_name: camunda
     hostname: camunda
@@ -24,14 +23,13 @@ services:
     environment:
       DB_DRIVER: org.postgresql.Driver
       DB_URL: jdbc:postgresql://database:5432/${POSTGRES_DB}
-      DB_USERNAME: ${POSTGRES_USER}
+      DB_USERNAME: ${POSTGRES_DB}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
     networks:
       - camunda-platform
     depends_on:
       - database
       - elasticsearch
-  
   optimize: # https://docs.camunda.io/docs/self-managed/platform-deployment/docker/#optimize
     image: camunda/optimize:${CAMUNDA_OPTIMIZE_VERSION:-3.8.2}
     container_name: optimize
@@ -44,11 +42,12 @@ services:
     networks:
       - camunda-platform
     depends_on:
+      - camunda
+      - database
       - elasticsearch
     volumes:
       - ./optimize-config/environment-config.yaml:/optimize/config/environment-config.yaml
       - ./optimize-config/optimizeLicense.txt:/optimize/config/optimizeLicense.txt
-  
   elasticsearch: # https://hub.docker.com/_/elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-7.17.0}
     container_name: elasticsearch

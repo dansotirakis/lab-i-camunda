@@ -8,8 +8,6 @@ services:
       POSTGRES_USER: ${DS_USR_CE}
       POSTGRES_PASSWORD: ${DS_PASS_CE}
       POSTGRES_DB: ${DS_NAME_CE}
-    volumes:
-      - ./db-data/:/var/lib/postgresql/data/
   camunda:
     container_name: camunda-engine
     build:
