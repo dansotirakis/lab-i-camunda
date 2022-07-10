@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.camunda.bpm.getstarted</groupId>
-	<artifactId>camunda-engine-external-task</artifactId>
+	<artifactId>camunda-external-task</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<camunda.external-task-client.version>7.15.0</camunda.external-task-client.version>
+		<camunda.external-task-client.version>7.17.0</camunda.external-task-client.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -20,26 +20,12 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>1.6.1</version>
+			<version>1.7.36</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
-			<version>2.3.1</version>
+			<version>2.4.0-b180830.0359</version>
 		</dependency>
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>jdk9-plus</id>
-			<activation><jdk>(1.8,)</jdk></activation>
-			<dependencies>
-				<dependency>
-					<groupId>com.sun.xml.bind</groupId>
-					<artifactId>jaxb-impl</artifactId>
-					<version>2.3.1</version>
-				</dependency>
-			</dependencies>
-		</profile>
-	</profiles>
 </project>
