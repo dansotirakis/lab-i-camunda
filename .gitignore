@@ -11,3 +11,7 @@ camunda-engine-dt/target/
 license
 
 camunda-engine-ee/docker-engine-ee/optimize-config/optimizeLicense.txt
+
+camunda-engine-ee/package-engine-ee/
+
+camunda-engine-ee/docker-optimize/optimize-config/optimizeLicense.txt
