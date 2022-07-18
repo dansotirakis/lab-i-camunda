@@ -38,17 +38,17 @@ engines:
   'camunda-bpm':
     name: default
     defaultTenant:
-      id: null
-      name: null
+      id: a
+      name: a
     rest: ${OPTIMIZE_CAMUNDABPM_REST_URL}
     importEnabled: true
-    eventImportEnabled: false
+    eventImportEnabled: ${OPTIMIZE_CAMUNDA_BPM_EVENT_IMPORT_ENABLED}
     authentication:
       enabled: true
       password: 'demo'
       user: 'demo'
     webapps:
-      endpoint: ${CAMUNDA_BPMN_URL}
+      endpoint: ${OPTIMIZE_CAMUNDABPM_WEBAPPS_URL}
       enabled: true
 
 engine-commons:
