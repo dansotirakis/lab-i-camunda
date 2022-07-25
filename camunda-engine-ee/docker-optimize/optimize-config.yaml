@@ -24,8 +24,8 @@ api:
 container:
   host: localhost
   ports:
-    http: 8090
-    https: 8091
+    http: ${OPTIMIZE_WEBAPPS_CONTAINER_HTTP_PORT}
+    https: ${OPTIMIZE_WEBAPPS_CONTAINER_HTTPS_PORT}
   keystore:
     location: keystore.jks
     password: optimize
@@ -38,15 +38,15 @@ engines:
   'camunda-bpm':
     name: default
     defaultTenant:
-      id: a
-      name: a
+      id: default
+      name: default
     rest: ${OPTIMIZE_CAMUNDABPM_REST_URL}
     importEnabled: true
-    eventImportEnabled: ${OPTIMIZE_CAMUNDA_BPM_EVENT_IMPORT_ENABLED}
+    eventImportEnabled: ${OPTIMIZE_CAMUNDABPM_EVENT_IMPORT_ENABLED}
     authentication:
-      enabled: true
-      password: 'demo'
-      user: 'demo'
+      enabled: ${OPTIMIZE_AUTHENTICATION_ENABLED}
+      password: '${OPTIMIZE_CAMUNDABPM_WEBAPPS_PASS}'
+      user: '${OPTIMIZE_CAMUNDABPM_WEBAPPS_USR}'
     webapps:
       endpoint: ${OPTIMIZE_CAMUNDABPM_WEBAPPS_URL}
       enabled: true
@@ -118,8 +118,8 @@ es:
     responseConsumerBufferLimitInMb: 100
     pathPrefix: ''
     nodes:
-      - host: ${ELASTICSEARCH_HOST}
-        httpPort: 9200
+      - host: ${OPTIMIZE_ELASTICSEARCH_HOST}
+        httpPort: ${OPTIMIZE_ELASTICSEARCH_HTTP_PORT}
     proxy:
       enabled: false
       host: null

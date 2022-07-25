@@ -9,9 +9,6 @@ spring:
     url: ${DS_URL_CE}
     password: ${DS_PASS_CE}
     driver-class-name: org.postgresql.Driver
-book:
-  api:
-    url: ${BOOK_API_URL}
 feign:
   client:
     config:

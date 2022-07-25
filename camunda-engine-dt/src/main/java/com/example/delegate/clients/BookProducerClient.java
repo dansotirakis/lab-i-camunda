@@ -5,7 +5,7 @@ import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "books", url = "${book.api.url}")
+@FeignClient(name = "books", url = "${BOOK_API_URL}")
 public interface BookProducerClient {
 
     @PostMapping(path = "/book")
