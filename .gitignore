@@ -1,9 +1,0 @@
-*.idea/
-*.iml
-*.run/
-camunda-engine-dt/target/
-camunda-engine-ee/package-engine-ee/
-camunda-engine-ee/docker-cawemo/license.txt
-camunda-engine-ee/docker-optimize/license.txt
-camunda-engine-ee/docker-engine/license.txt
-camunda-engine-ee/docker-optimize/env.optmize-hub
