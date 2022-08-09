@@ -1,0 +1,35 @@
+services:
+  database:
+    container_name: database
+    image: 'postgres:12.11'
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PASSWORD_ENCRYPTION: ${PASSWORD_ENCRYPTION}
+    volumes:
+      - ./docker_data/postgres/data/:/var/lib/postgresql/data/
+    networks:
+          - camunda-platform
+  camunda:
+    container_name: camunda
+    hostname: camunda
+    image: 'registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee@sha256:e45797ef8dd51db2574afd188da07564bbe34d4096b02ecc1ddeecc6f563e93a'
+    ports:
+      - "8080:8080"
+    links:
+      - "database:database"
+    environment:
+      DB_DRIVER: org.postgresql.Driver
+      DB_URL: jdbc:postgresql://database:5432/${POSTGRES_DB}
+      DB_USERNAME: ${POSTGRES_DB}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      - camunda-platform
+    depends_on:
+      - database
+
+networks:
+  camunda-platform:

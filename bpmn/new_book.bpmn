@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_069u2a0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:process id="ProcessNewBook" name="ProcessNewBook" isExecutable="true" camunda:versionTag="10">
+    <bpmn:extensionElements />
+    <bpmn:sequenceFlow id="FlowFinishJourney" sourceRef="ServiceTaskSaveBookId" targetRef="UserTaskFinishJourneyId" />
+    <bpmn:sequenceFlow id="FlowNewBookSave" sourceRef="UserTaskNewBookId" targetRef="ServiceTaskSaveBookId" />
+    <bpmn:userTask id="UserTaskNewBookId" name="NewBook">
+      <bpmn:documentation>Set a new book information's</bpmn:documentation>
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="book_name" type="string" />
+          <camunda:formField id="book_price" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0vajb4w</bpmn:incoming>
+      <bpmn:incoming>Flow_1tcgt25</bpmn:incoming>
+      <bpmn:outgoing>FlowNewBookSave</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="ServiceTaskSaveBookId" name="SaveBook" camunda:asyncBefore="true" camunda:delegateExpression="${newBookDelegate}">
+      <bpmn:incoming>FlowNewBookSave</bpmn:incoming>
+      <bpmn:outgoing>FlowFinishJourney</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="UserTaskFinishJourneyId" name="FinishJourney">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="book_id" />
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>FlowFinishJourney</bpmn:incoming>
+      <bpmn:outgoing>Flow_12rsdzu</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="StartEventNewBookJourneyId" name="StartBookJourney">
+      <bpmn:outgoing>Flow_0vajb4w</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0vajb4w" sourceRef="StartEventNewBookJourneyId" targetRef="UserTaskNewBookId" />
+    <bpmn:endEvent id="EndEventNewBookJourneyId" name="EndBookJourney">
+      <bpmn:incoming>Flow_12rsdzu</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_12rsdzu" sourceRef="UserTaskFinishJourneyId" targetRef="EndEventNewBookJourneyId" />
+    <bpmn:boundaryEvent id="EventSaveBookId" attachedToRef="ServiceTaskSaveBookId">
+      <bpmn:outgoing>Flow_1tcgt25</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1f3h3d3" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_1tcgt25" sourceRef="EventSaveBookId" targetRef="UserTaskNewBookId" />
+  </bpmn:process>
+  <bpmn:message id="Message_3h8cpq3" name="startNewBook" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ProcessNewBook">
+      <bpmndi:BPMNEdge id="Flow_0vajb4w_di" bpmnElement="Flow_0vajb4w">
+        <di:waypoint x="178" y="190" />
+        <di:waypoint x="240" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0yiinvr_di" bpmnElement="FlowNewBookSave">
+        <di:waypoint x="340" y="190" />
+        <di:waypoint x="390" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1j21lyy_di" bpmnElement="FlowFinishJourney">
+        <di:waypoint x="490" y="190" />
+        <di:waypoint x="520" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12rsdzu_di" bpmnElement="Flow_12rsdzu">
+        <di:waypoint x="620" y="190" />
+        <di:waypoint x="672" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tcgt25_di" bpmnElement="Flow_1tcgt25">
+        <di:waypoint x="450" y="132" />
+        <di:waypoint x="450" y="100" />
+        <di:waypoint x="290" y="100" />
+        <di:waypoint x="290" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_12iozjh_di" bpmnElement="UserTaskNewBookId" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="240" y="150" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qkz2rj_di" bpmnElement="ServiceTaskSaveBookId" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="390" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10yrnpu_di" bpmnElement="UserTaskFinishJourneyId" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="520" y="150" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1xh2lkj_di" bpmnElement="EndEventNewBookJourneyId" bioc:stroke="#e53935" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#e53935">
+        <dc:Bounds x="672" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="648" y="215" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ftnuvs_di" bpmnElement="StartEventNewBookJourneyId" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
+        <dc:Bounds x="142" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="117" y="215" width="88" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1qlvgu8_di" bpmnElement="EventSaveBookId" bioc:stroke="#fb8c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#fb8c00">
+        <dc:Bounds x="432" y="132" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="436" y="175" width="8" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
