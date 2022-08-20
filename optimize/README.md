@@ -1,26 +1,8 @@
-
----
-
-## Docker run ElasticSearch 7.17.0 at elastic
+# Camunda Optimize
+## [Optimize](http://localhost:8083/)
+## Docker run Opensearch 2.2.0 at opensearchproject
 ```shell
-  docker run -d \
-   --name elasticsearch \
-   -p 9200:9200 \
-   -p 9300:9300 \
-   -e cluster.routing.allocation.disk.threshold_enabled=true \
-   -e cluster.routing.allocation.disk.watermark.low=1024mb \
-   -e cluster.routing.allocation.disk.watermark.high=512mb \
-   -e cluster.routing.allocation.disk.watermark.flood_stage=256mb \
-   -e cluster.name=elasticsearch \
-   -e bootstrap.memory_lock=true \
-   -e discovery.type=single-node \
-   -e action.auto_create_index=false \
-   -e transport.host=0.0.0.0 \
-   -e http.host=0.0.0.0 \
-   -e ES_JAVA_OPTS=-Xms512m -Xmx512m \
-   -e client.transport.sniff=false \
-   -v elasticsearch:/usr/share/elasticsearch/data
-   docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+  docker run -p 9200:9200 -p 9600:9600 -e "discovery.type=single-node" opensearchproject/opensearch:2.2.0
 ```
 ## Docker run Optimize 3.8.2 at camunda
 ```shell
@@ -37,9 +19,7 @@
 ```shell
 docker login registry.camunda.cloud && docker-compose l --env-file env.optmize up -d --build
 ```
-## Login and Docker-Compose: Optimize Docker HUB
+## Docker-Compose: Optimize HUB
 ```shell
-docker-compose --env-file env.optmize-hub up -d --build
+docker-compose --env-file env.optmize up -d --build
 ```
----
-- [Optimize](http://localhost:8083/)
