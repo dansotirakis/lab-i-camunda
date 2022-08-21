@@ -39,7 +39,7 @@ docker login registry.camunda.cloud && docker-compose l --env-file env.optmize u
 ```
 ## Login and Docker-Compose: Optimize Docker HUB
 ```shell
-docker-compose --env-file env.optmize-hub up -d --build
+docker-compose --env-file env.optmize up -d --build
 ```
 ---
 - [Optimize](http://localhost:8083/)
