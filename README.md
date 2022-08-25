@@ -1,1 +1,1 @@
-# lab-camunda-engine-ee
+# LAB Camunda Infrastructure
