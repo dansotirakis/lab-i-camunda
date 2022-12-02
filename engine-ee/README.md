@@ -22,7 +22,7 @@ docker run -d \
 ```
 ## Docker Compose Engine EE
 ```shell
-docker login registry.camunda.cloud && docker-compose -f docker-compose.yaml --env-file env.enterprise up -d --build
+docker login registry.camunda.cloud && docker-compose -f docker-compose.yaml --env-file enterprise.env up -d --build
 ```
 ## Credentials Cockpit
 - Login: demo
