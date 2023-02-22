@@ -1,0 +1,49 @@
+version: "3"
+services:
+  database-engine:
+    container_name: ${CAMUNDA_DS_NAME}
+    hostname: ${CAMUNDA_DS_NAME}
+    image: 'postgres:latest'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ${CAMUNDA_DS_USR}
+      POSTGRES_PASSWORD: ${CAMUNDA_DS_PASS}
+      POSTGRES_DB: ${CAMUNDA_DS_NAME}
+    volumes:
+      - ./db/postgres:/var/lib/postgresql/data/
+    networks:
+      - camunda-network
+  camunda:
+    container_name: ${CAMUNDA_ENGINE}
+    hostname: ${CAMUNDA_ENGINE}
+    build:
+      context: ${DOCKER_BUILD_CONTEXT_CAMUNDA-./camunda-engine/}
+      dockerfile: ./Dockerfile
+    image: camunda-engine:latest
+    ports:
+      - '8080:8080'
+    environment:
+      - CAMUNDA_DS_URL=${PREFIX_JDBC_POSTGRESQL}://${CAMUNDA_DS_NAME}:${CAMUNDA_DS_PORT}/${CAMUNDA_DS_NAME}
+      - CAMUNDA_DS_PASS=${CAMUNDA_DS_PASS}
+      - CAMUNDA_DS_USR=${CAMUNDA_DS_USR}
+      - CAMUNDA_DS_DRIVER=${CAMUNDA_DS_DRIVER}
+      - CAMUNDA_DS_DDL=${CAMUNDA_DS_DDL}
+      - CAMUNDA_USR=${CAMUNDA_USR}
+      - CAMUNDA_PASS=${CAMUNDA_PASS}
+      - CAMUNDA_SCHEMA=${CAMUNDA_SCHEMA}
+      - CAMUNDA_SPRING_PROFILE=${CAMUNDA_SPRING_PROFILE}
+      - CAMUNDA_WEBAPP_PORT=${CAMUNDA_WEBAPP_PORT}
+      - BOOK_API_URL=${BOOK_API_URL:-172.17.0.1}:${BOOK_API_PORT:-442}
+    depends_on:
+      - database-engine
+    links:
+      - database-engine
+    networks:
+      - camunda-network
+
+volumes:
+  db:
+    driver: local
+networks:
+  camunda-network: {}
