@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1qtqejm" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.7.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.16.0">
+  <bpmn:collaboration id="ProcessTestException">
+    <bpmn:participant id="Participant_0j87x4h" name="ProcessTestException" processRef="ProcessTestExceptionSync" />
+  </bpmn:collaboration>
+  <bpmn:process id="ProcessTestExceptionSync" isExecutable="true">
+    <bpmn:startEvent id="init">
+      <bpmn:outgoing>Flow_08ftbd0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="End">
+      <bpmn:incoming>Flow_03rsgov</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="start" name="Start">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="sync" label="status" type="boolean" defaultValue="true" />
+          <camunda:formField id="status" type="string" defaultValue="200" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_08ftbd0</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jq19nv</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="end" name="End">
+      <bpmn:incoming>Flow_1ukydy7</bpmn:incoming>
+      <bpmn:outgoing>Flow_03rsgov</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="et" name="External" camunda:asyncBefore="true" camunda:asyncAfter="true" camunda:type="external" camunda:topic="charge-book">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_1jq19nv</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ukydy7</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_08ftbd0" sourceRef="init" targetRef="start" />
+    <bpmn:sequenceFlow id="Flow_03rsgov" sourceRef="end" targetRef="End" />
+    <bpmn:sequenceFlow id="Flow_1jq19nv" sourceRef="start" targetRef="et" />
+    <bpmn:sequenceFlow id="Flow_1ukydy7" sourceRef="et" targetRef="end" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ProcessTestException">
+      <bpmndi:BPMNShape id="Participant_0j87x4h_di" bpmnElement="Participant_0j87x4h" isHorizontal="true">
+        <dc:Bounds x="160" y="85" width="680" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="init" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="212" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="187" y="235" width="87" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1v4s1dw_di" bpmnElement="End" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="782" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14meuxk_di" bpmnElement="start" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
+        <dc:Bounds x="300" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1vo2b6u_di" bpmnElement="end" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
+        <dc:Bounds x="620" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_013c40u_di" bpmnElement="et" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
+        <dc:Bounds x="460" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_08ftbd0_di" bpmnElement="Flow_08ftbd0">
+        <di:waypoint x="248" y="210" />
+        <di:waypoint x="300" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03rsgov_di" bpmnElement="Flow_03rsgov">
+        <di:waypoint x="720" y="210" />
+        <di:waypoint x="782" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jq19nv_di" bpmnElement="Flow_1jq19nv">
+        <di:waypoint x="400" y="210" />
+        <di:waypoint x="460" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ukydy7_di" bpmnElement="Flow_1ukydy7">
+        <di:waypoint x="560" y="210" />
+        <di:waypoint x="620" y="210" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
