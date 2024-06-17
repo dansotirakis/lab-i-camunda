@@ -2,3 +2,8 @@
 lab-i-camunda.iml
 
 optimize/volume/
+camunda-II/components/camunda*
+camunda-II/components/zbctl
+
+.idea/*
+
