@@ -1,0 +1,77 @@
+## Chart Camunda 8
+## Repository https://artifacthub.io/packages/helm/camunda/camunda-platform
+## Parameters https://artifacthub.io/packages/helm/camunda/camunda-platform#parameters
+## Documentattion https://docs.camunda.io/docs/self-managed/setup/deploy/local/local-kubernetes-cluster
+
+global:
+  identity:
+    auth:
+      # Disable the Identity authentication for local development
+      # it will fall back to basic-auth: demo/demo as default user
+      enabled: false
+
+identity:
+  enabled: false
+
+identityKeycloak:
+  enabled: false
+
+identityPostgresql:
+  enabled: false
+  auth:
+    database: ""
+    username: ""
+    password:
+    existingSecret:
+
+tasklist:
+  enabled: false
+  resources:
+    requests:
+      memory: 800Mi
+      cpu: 500m
+    limits:
+      memory: 900Mi
+      cpu: 600m
+
+operate:
+  enabled: false
+
+optimize:
+  enabled: false
+
+zeebe:
+  clusterSize: 1
+  partitionCount: 1
+  replicationFactor: 1
+  pvcSize: 5Gi
+  resources:
+    requests:
+      memory: 800Mi
+      cpu: 500m
+    limits:
+      memory: 900Mi
+      cpu: 600m
+
+zeebeGateway:
+  replicas: 1
+
+connectors:
+  enabled: true
+  inbound:
+    mode: disabled
+      
+elasticsearch:
+  master:
+    replicaCount: 1
+    # Request smaller persistent volumes.
+    persistence:
+      size: 5Gi
+  clusterHealthCheckParams: "wait_for_status=yellow&timeout=1s"
+  resources:
+    requests:
+      memory: 500Mi
+      cpu: 500m
+    limits:
+      memory: 2Gi
+      cpu: 800m
